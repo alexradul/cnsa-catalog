@@ -1,0 +1,9 @@
+spring:
+  sql:
+    init:
+      mode: ALWAYS
+  datasource:
+    url: jdbc:tc:postgresql:14.4:///
+
+catalog-service:
+  setupTestData: true

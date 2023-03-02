@@ -6,3 +6,8 @@ server:
     threads:
       max: 50
       min-spare: 5
+spring:
+  datasource:
+    hikari:
+      connection-timeout: 2000
+      maximum-pool-size: 5
