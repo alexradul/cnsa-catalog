@@ -13,8 +13,8 @@ public class BookDataLoader {
     @Bean
     ApplicationRunner loadBookTestData(BookRepository repository) {
         return args -> {
-            repository.save(Book.of("1234", "The Old Man and the Sea", "Ernest Hemingway", 100.0));
-            repository.save(Book.of("4321", "Catcher in the Ray", "J.D. Salinger", 100.0));
+            repository.save(Book.of("1234", "The Old Man and the Sea", "Ernest Hemingway", 100.0, "Macondo"));
+            repository.save(Book.of("4321", "Catcher in the Ray", "J.D. Salinger", 100.0, "Macondo"));
         };
     }
 }
