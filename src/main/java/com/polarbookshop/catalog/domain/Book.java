@@ -4,6 +4,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.Version;
+import org.springframework.data.relational.core.mapping.Column;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -34,18 +35,22 @@ public record Book(
                 message = "The price cannot be negative value."
         )
         BigDecimal price,
+
+        String publisher,
         @CreatedDate
+        @Column("created_date")
         Instant createdAt,
         @LastModifiedDate
+        @Column("last_modified_date")
         Instant lastModifiedAt,
         @Version
         int version) {
 
-        public static Book of(String isbn, String title, String author, double price) {
-                return of(isbn, title, author, BigDecimal.valueOf(price));
+        public static Book of(String isbn, String title, String author, double price, String publisher) {
+                return of(isbn, title, author, BigDecimal.valueOf(price), publisher);
         }
 
-        public static Book of(String isbn, String title, String author, BigDecimal price) {
-                return new Book(null, isbn, title, author, price, null, null, 0);
+        public static Book of(String isbn, String title, String author, BigDecimal price, String publisher) {
+                return new Book(null, isbn, title, author, price, publisher, null, null, 0);
         }
 }
