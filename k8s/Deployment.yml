@@ -30,3 +30,7 @@ spec:
               value: user
             - name: SPRING_DATASOURCE_PASSWORD
               value: password
+          lifecycle:
+            preStop:
+              exec:
+                command: ["sh", "-c", "sleep 5"]
