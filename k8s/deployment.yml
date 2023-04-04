@@ -30,6 +30,8 @@ spec:
               value: user
             - name: SPRING_DATASOURCE_PASSWORD
               value: password
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI
+              value: http://polar-keycloak/realms/PolarBookshop
           lifecycle:
             preStop:
               exec:
