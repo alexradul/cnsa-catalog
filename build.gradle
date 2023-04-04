@@ -6,6 +6,7 @@ plugins {
 
 ext {
     set('testcontainersVersion', "1.17.6")
+    set('testKeycloakVersion', "2.3.0")
 }
 
 group = 'com.polarbookshop'
@@ -36,6 +37,8 @@ dependencies {
     testImplementation 'org.testcontainers:junit-jupiter'
     testImplementation 'org.testcontainers:postgresql'
     testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'org.testcontainers:junit-jupiter'
+    testImplementation "com.github.dasniko:testcontainers-keycloak:${testKeycloakVersion}"
 }
 
 dependencyManagement {
