@@ -1,9 +1,6 @@
 package com.polarbookshop.catalog.domain;
 
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.annotation.Version;
+import org.springframework.data.annotation.*;
 import org.springframework.data.relational.core.mapping.Column;
 
 import javax.validation.constraints.NotBlank;
@@ -44,13 +41,19 @@ public record Book(
         @Column("last_modified_date")
         Instant lastModifiedAt,
         @Version
-        int version) {
+        int version,
+
+        @CreatedBy
+        String createdBy,
+
+        @LastModifiedBy
+        String lastModifiedBy) {
 
         public static Book of(String isbn, String title, String author, double price, String publisher) {
                 return of(isbn, title, author, BigDecimal.valueOf(price), publisher);
         }
 
         public static Book of(String isbn, String title, String author, BigDecimal price, String publisher) {
-                return new Book(null, isbn, title, author, price, publisher, null, null, 0);
+                return new Book(null, isbn, title, author, price, publisher, null, null, 0, null, null);
         }
 }
