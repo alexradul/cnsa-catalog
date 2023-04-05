@@ -36,3 +36,5 @@ management:
     health:
       show-components: ALWAYS
       show-details: ALWAYS
+      probes:
+        enabled: true
