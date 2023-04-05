@@ -32,9 +32,13 @@ management:
       exposure:
         include:
           - health
+          - prometheus
   endpoint:
     health:
       show-components: ALWAYS
       show-details: ALWAYS
       probes:
         enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
