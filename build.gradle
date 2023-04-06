@@ -7,6 +7,7 @@ plugins {
 ext {
     set('testcontainersVersion', "1.17.6")
     set('testKeycloakVersion', "2.3.0")
+    set('otelVersion', "1.17.0")
 }
 
 group = 'com.polarbookshop'
@@ -31,6 +32,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
     runtimeOnly 'org.postgresql:postgresql'
+    runtimeOnly "io.opentelemetry.javaagent:opentelemetry-javaagent:${otelVersion}"
     implementation 'org.flywaydb:flyway-core'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
