@@ -7,7 +7,7 @@ plugins {
 ext {
     set('testcontainersVersion', "1.17.6")
     set('testKeycloakVersion', "2.3.0")
-    set('otelVersion', "1.17.0")
+    set('otelVersion', "1.19.2")
 }
 
 group = 'com.polarbookshop'
