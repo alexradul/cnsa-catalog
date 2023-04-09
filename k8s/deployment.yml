@@ -26,16 +26,9 @@ spec:
           env:
             - name: BPL_JVM_THREAD_COUNT
               value: "50"
-            - name: SPRING_DATASOURCE_URL
-              value: jdbc:postgresql://polar-postgres/polardb_catalog
-            - name: CATALOG-SERVICE_SETUPTESTDATA
-              value: "true"
-            - name: SPRING_DATASOURCE_USERNAME
-              value: user
-            - name: SPRING_DATASOURCE_PASSWORD
-              value: password
-            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI
-              value: http://polar-keycloak/realms/PolarBookshop
+          volumeMounts:
+            - mountPath: /workspace/config
+              name: catalog-config-volume
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
@@ -52,3 +45,7 @@ spec:
             preStop:
               exec:
                 command: ["sh", "-c", "sleep 5"]
+      volumes:
+        - name: catalog-config-volume
+          configMap:
+            name: catalog-config
