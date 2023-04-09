@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://polar-postgres/polardb_catalog
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://polar-keycloak/realms/PolarBookshop
+catalog-service:
+  setupTestData: true
